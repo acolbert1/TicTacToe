@@ -13,42 +13,100 @@ class Game(object):
         self.board =  {"1": "-", "2": "-", "3": "-", "4": "-", "5": "-", "6": "-", "7": "-", "8": "-", "9": "-"}
         self.playerOne = "1"
         self.playerTwo = "2"
+        self.p1Counter = 0
+        self.p2Counter = 0
         
     def playerMove(self):
         print(self.piece)
+        #if the value of key 1 2 and 3 is equal to X or O then print("something")
+        #if key (1, 2, 3) in self.board == "X" or "O" then print()
+        
         if self.board["1"] == "X" and self.board["2"] == "X" and self.board["3"] == "X":
             print("Player 1 wins!")
+            self.p1Counter = self.p1Counter + 1
+            print(self.p1Counter)
+            self.gameOver()
         if self.board["1"] == "O" and self.board["2"] == "O" and self.board["3"] == "O":
             print("player 2 wins!")
+            self.p2Counter = self.p2Counter + 1
+            print(self.p2Counter)
             self.gameOver()
         if self.board["1"] == "X" and self.board["4"] == "X" and self.board["7"] == "X":
             print("Player 1 wins!")
+            self.p1Counter = self.p1Counter + 1
+            print(self.p1Counter)
             self.gameOver()
         if self.board["1"] == "O" and self.board["4"] == "O" and self.board["7"] == "O":
-            print("Player 2 wins!")
+            print("player 2 wins!")
+            self.p2Counter = self.p2Counter + 1
+            print(self.p2Counter)
             self.gameOver()
         if self.board["1"] == "X" and self.board["5"] == "X" and self.board["9"] == "X":
             print("Player 1 wins!")
+            self.p1Counter = self.p1Counter + 1
+            print(self.p1Counter)
+            self.gameOver()
+        if self.board["1"] == "O" and self.board["5"] == "O" and self.board["9"] == "O":
+            print("player 2 wins!")
+            self.p2Counter = self.p2Counter + 1
+            print(self.p2Counter)
             self.gameOver()
         if self.board["2"] == "X" and self.board["5"] == "X" and self.board["8"] == "X":
             print("Player 1 wins!")
+            self.p1Counter = self.p1Counter + 1
+            print(self.p1Counter)
+            self.gameOver()
+        if self.board["2"] == "O" and self.board["5"] == "O" and self.board["8"] == "O":
+            print("player 2 wins!")
+            self.p2Counter = self.p2Counter + 1
+            print(self.p2Counter)
             self.gameOver()
         if self.board["3"] == "X" and self.board["5"] == "X" and self.board["7"] == "X":
             print("Player 1 wins!")
+            self.p1Counter = self.p1Counter + 1
+            print(self.p1Counter)
+            self.gameOver()
+        if self.board["3"] == "O" and self.board["5"] == "O" and self.board["7"] == "O":
+            print("player 2 wins!")
+            self.p2Counter = self.p2Counter + 1
+            print(self.p2Counter)
             self.gameOver()
         if self.board["3"] == "X" and self.board["6"] == "X" and self.board["9"] == "X":
             print("Player 1 wins!")
+            self.p1Counter = self.p1Counter + 1
+            print(self.p1Counter)
+            self.gameOver()
+        if self.board["3"] == "O" and self.board["6"] == "O" and self.board["9"] == "O":
+            print("player 2 wins!")
+            self.p2Counter = self.p2Counter + 1
+            print(self.p2Counter)
             self.gameOver()
         if self.board["4"] == "X" and self.board["5"] == "X" and self.board["6"] == "X":
             print("Player 1 wins!")
+            self.p1Counter = self.p1Counter + 1
+            print(self.p1Counter)
+            self.gameOver()
+        if self.board["4"] == "O" and self.board["5"] == "O" and self.board["6"] == "O":
+            print("player 2 wins!")
+            self.p2Counter = self.p2Counter + 1
+            print(self.p2Counter)
             self.gameOver()
         if self.board["7"] == "X" and self.board["8"] == "X" and self.board["9"] == "X":
             print("Player 1 wins!")
+            self.p1Counter = self.p1Counter + 1
+            print(self.p1Counter)
+            self.gameOver()
+        if self.board["7"] == "O" and self.board["8"] == "O" and self.board["9"] == "O":
+            print("player 2 wins!")
+            self.p2Counter = self.p2Counter + 1
+            print(self.p2Counter)
             self.gameOver()
         
         self.tieGame()
                                           
     def gameOver(self):
+        print("This is a counter for Player 1 wins: " + str(self.p1Counter))
+        print("This is a counter for Player 2 wins: " + str(self.p2Counter))
         user_input = input("The game is over! Player X wins! Would you like to play again or quit?")  
         user_input = user_input.lower()
         if user_input in ("y", "yes"):
@@ -61,7 +119,7 @@ class Game(object):
                 self.piece = "X"
             # self.playerMove()
         else:
-            print("Thanks for playing! Quitting the game.")
+            print("Thanks for playing! Quitting the game. The final score was Player 1: " + str(self.p1Counter) + "Player 2: " + str(self.p2Counter))
             exit()
         
     def tieGame(self):
@@ -155,7 +213,7 @@ class Game(object):
 
     
 
-game1 = Game("X")
+game1 = Game("O")
 game1.playerInput()
 
 
